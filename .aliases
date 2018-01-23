@@ -1,0 +1,2 @@
+alias java='java -cp "bin/;lib/algs4.jar;" '
+alias HexDump='edu.princeton.cs.algs4.HexDump'

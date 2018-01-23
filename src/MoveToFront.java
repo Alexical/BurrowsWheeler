@@ -3,11 +3,12 @@ import edu.princeton.cs.algs4.BinaryStdOut;
 
 public class MoveToFront {
     
-    private static final int[] SEQUENCE = new int[256];
+    private static final int R = 256;
+    private static final int[] SEQUENCE = new int[R];
     
     public static void encode() {
         int[] seq = SEQUENCE;
-        for (int i = 0; i < 256; ++i)
+        for (int i = 0; i < R; ++i)
             seq[i] = i;
         while (!BinaryStdIn.isEmpty()) {
             int c = BinaryStdIn.readChar();
@@ -18,11 +19,12 @@ public class MoveToFront {
             seq[0] = c;
             BinaryStdOut.write((char) i);
         }
+        BinaryStdOut.flush();
     }
     
     public static void decode() {
         int[] seq = SEQUENCE;
-        for (int i = 0; i < 256; ++i)
+        for (int i = 0; i < R; ++i)
             seq[i] = i;
         while (!BinaryStdIn.isEmpty()) {
             int i = BinaryStdIn.readChar();
@@ -31,13 +33,13 @@ public class MoveToFront {
             System.arraycopy(seq, 0, seq, 1, i);
             seq[0] = c;
         }
+        BinaryStdOut.flush();
     }
     
     public static void main(String[] args) {
         if (args[0].equals("-"))
             encode();
         else decode();
-        BinaryStdOut.flush();
     }
 
 }
